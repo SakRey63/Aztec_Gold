@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    public GameObject _ObjectToInstantiate;
+    [SerializeField] private GameObject _ObjectToInstantiate;
+    [SerializeField] private Transform _spawnPoint;
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Forth_block_of_stone block = FindObjectOfType<Forth_block_of_stone>();
+            Skeleton block = FindObjectOfType<Skeleton>();
             if (block != null)
             {
                 Destroy(block.gameObject);
@@ -18,7 +20,7 @@ public class Game : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Instantiate(_ObjectToInstantiate);
+            Instantiate(_ObjectToInstantiate, _spawnPoint.position, _spawnPoint.rotation);
         }
         
     }

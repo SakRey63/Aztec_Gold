@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 
 public class Forth_block_of_stone : MonoBehaviour
 {
 
-    public float speed = 1.0f;
-    public float gravity = -4.0f;
+    [SerializeField] private float speed;
     
 
     // В каком направлении объект движется в данный момент
@@ -15,6 +15,6 @@ public class Forth_block_of_stone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, gravity * Time.deltaTime, direction * speed * Time.deltaTime);
+        transform.Translate(0, 0, direction * speed * Time.deltaTime);
     }
 }
