@@ -6,7 +6,8 @@ public class Game : MonoBehaviour
 {
     [SerializeField] private GameObject _ObjectToInstantiate;
     [SerializeField] private Transform _spawnPoint;
-    
+    [SerializeField] private EnemySpawner _enemySpawner;
+     
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -20,7 +21,12 @@ public class Game : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Instantiate(_ObjectToInstantiate, _spawnPoint.position, _spawnPoint.rotation);
+            var go = Instantiate(_ObjectToInstantiate, _spawnPoint.position, _spawnPoint.rotation);
+            var component = go.GetComponent<Skeleton>();
+            if (component != null)
+            {
+                component.SetSpawner(_enemySpawner);
+            }
         }
         
     }

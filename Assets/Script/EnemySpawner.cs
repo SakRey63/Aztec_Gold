@@ -18,20 +18,28 @@ public class EnemySpawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        _carentTimer -= Time.deltaTime;
-
-        if (_carentTimer <= 0.0f)
-        {
-            int index = Random.Range(0, _Points.Length);
-            Instantiate(_enemyPrefab, _Points[index].position, _Points[index].rotation);
-            ResetTimer();
-        }
-    }
+    // void Update()
+    // {
+    //     _carentTimer -= Time.deltaTime;
+    //
+    //     if (_carentTimer <= 0.0f)
+    //     {
+    //         int index = Random.Range(0, _Points.Length);
+    //         Instantiate(_enemyPrefab, _Points[index].position, _Points[index].rotation);
+    //         ResetTimer();
+    //     }
+    // }
 
     private void ResetTimer()
     {
         _carentTimer = _timeToSpawn;
     }
+
+    public void Spavn()
+    {
+        int index = Random.Range(0, _Points.Length);
+        Instantiate(_enemyPrefab, _Points[index].position, _Points[index].rotation);
+        ResetTimer();
+    }
+    
 }
