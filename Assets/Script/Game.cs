@@ -7,7 +7,10 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject _ObjectToInstantiate;
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private EnemySpawner _enemySpawner;
-     
+    [SerializeField] private ForthBlockOfStone _forthBlockOfStone;
+    [SerializeField] private MovingToTheRight _movingToTheRight;
+    [SerializeField] private MovingToTheLeft _movingToTheLeft;
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -26,6 +29,9 @@ public class Game : MonoBehaviour
             if (component != null)
             {
                 component.SetSpawner(_enemySpawner);
+                component.SetRun(_forthBlockOfStone);
+                component.OpenRight(_movingToTheRight);
+                component.OpenLeft(_movingToTheLeft);
             }
         }
         
