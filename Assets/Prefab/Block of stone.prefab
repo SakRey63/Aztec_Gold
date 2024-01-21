@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6508839713064525645}
   - component: {fileID: 926136593681802894}
   m_Layer: 0
-  m_Name: block_of_stone
+  m_Name: Block of stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5f5a46d5ff728f46a55c3c2a6394ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  gravity: -3
+  _speed: 1
+  _timeToDestroy: 3
 --- !u!54 &926136593681802894
 Rigidbody:
   m_ObjectHideFlags: 0

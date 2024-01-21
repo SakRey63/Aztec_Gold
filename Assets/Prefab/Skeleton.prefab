@@ -252,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSpeed: 0.03
   _rotateSpeed: 0.9
+  _jumpHeight: 0
 --- !u!54 &5360321686895260878
 Rigidbody:
   m_ObjectHideFlags: 0
