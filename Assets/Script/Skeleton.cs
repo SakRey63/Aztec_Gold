@@ -31,7 +31,7 @@ public class Skeleton : MonoBehaviour
         transform.Translate(Vector3.forward * (Input.GetAxis("Vertical") * _movementSpeed));
         transform.Rotate(Vector3.up * _rotateSpeed * Input.GetAxis("Horizontal"));
 
-        if (Input.GetKeyDown(KeyCode.Space) && !_isGrounded);
+        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
             _rb.AddForce(Vector3.up * _jumpHeight);
         }
@@ -50,7 +50,7 @@ public class Skeleton : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if (other.gameObject.layer == LayerMask.NameToLayer("Grounded"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             _isGrounded = true;
         }
@@ -59,7 +59,7 @@ public class Skeleton : MonoBehaviour
 
     private void OnCollisionExit(Collision other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Grounded"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             _isGrounded = false;
         }
