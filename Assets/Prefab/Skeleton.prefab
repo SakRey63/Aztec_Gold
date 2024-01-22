@@ -252,7 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSpeed: 0.03
   _rotateSpeed: 0.9
-  _jumpHeight: 0
+  _jumpHeight: 400
 --- !u!54 &5360321686895260878
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -278,7 +278,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &508604148948229052
 BoxCollider:
