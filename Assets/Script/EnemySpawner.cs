@@ -9,7 +9,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private Transform[] _Points;
     [SerializeField] private Transform _spawnOnStartGame;
-    
+    [SerializeField] private GameObject _stonesPrefab;
+    [SerializeField] private Transform _stonesPoints;
     
     // Start is called before the first frame update
    
@@ -24,4 +25,10 @@ public class EnemySpawner : MonoBehaviour
     {
         Instantiate(_enemyPrefab, _spawnOnStartGame.position, _spawnOnStartGame.rotation);
     }
+    
+    public void SpawnStones()
+    {
+        Instantiate(_stonesPrefab, _stonesPoints.position, _stonesPoints.rotation);
+    }
+    
 }

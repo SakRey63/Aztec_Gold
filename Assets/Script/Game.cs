@@ -10,6 +10,11 @@ public class Game : MonoBehaviour
     [SerializeField] private ForthBlockOfStone _forthBlockOfStone;
     [SerializeField] private MovingToTheRight _movingToTheRight;
     [SerializeField] private MovingToTheLeft _movingToTheLeft;
+    [SerializeField] private Fall _cubes;
+    [SerializeField] private SupportOff _support;
+    [SerializeField] private BridgeIsDisappearing _bridgeIsDisappearing;
+    [SerializeField] private TurningGrid _turningGrid;
+    [SerializeField] private EnemySpawner _stoneSpawn;
     
     void Update()
     {
@@ -32,6 +37,10 @@ public class Game : MonoBehaviour
                 component.SetRun(_forthBlockOfStone);
                 component.OpenRight(_movingToTheRight);
                 component.OpenLeft(_movingToTheLeft);
+                component.SupportOn(_support);
+                component.SetBridgeOf(_bridgeIsDisappearing);
+                component.Turning(_turningGrid);
+                component.Stones(_stoneSpawn);
             }
         }
         
