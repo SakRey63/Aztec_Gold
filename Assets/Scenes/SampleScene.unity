@@ -4088,6 +4088,7 @@ MonoBehaviour:
   _support: {fileID: 2144723112}
   _bridgeIsDisappearing: {fileID: 1145096483}
   _turningGrid: {fileID: 2028011701}
+  _stoneSpawn: {fileID: 231553952}
 --- !u!4 &768964353
 Transform:
   m_ObjectHideFlags: 0
@@ -6510,7 +6511,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1285171616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b30bdafc9d47b5945b5b508a5c7cde92, type: 3}
+  m_Script: {fileID: 11500000, guid: dc479c9f5e212bf47a3bf3f6027e188b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1288712563
@@ -8315,6 +8316,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764542332}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1786320753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8792005733421138668, guid: 8b73cc310888cba44aa16320b60c8c8e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2285664372415122024}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1786320757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786320753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b805c80de27c344807869ccbba032c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1795268062
 GameObject:
   m_ObjectHideFlags: 0
@@ -9856,7 +9875,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8792005733421138668, guid: 8b73cc310888cba44aa16320b60c8c8e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1786320757}
   m_SourcePrefab: {fileID: 100100000, guid: 8b73cc310888cba44aa16320b60c8c8e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

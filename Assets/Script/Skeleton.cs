@@ -12,7 +12,9 @@ public class Skeleton : MonoBehaviour
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _rotateSpeed;
     [SerializeField] private float _jumpHeight;
-
+    [SerializeField] private float _healthPoints;
+    [SerializeField] private float _damageStone;
+    [SerializeField] private float _damageGrid;
     private int _score = 0;
     private int _hit = 10;
     private Rigidbody _rb;
@@ -43,8 +45,29 @@ public class Skeleton : MonoBehaviour
         }
     }
     private void OnCollisionEnter(Collision other)
-    {
+    { 
         Debug.Log($"Skeleton collision enter {other.gameObject.name}");
+        
+        KillerGrid killerGrid = other.gameObject.GetComponent<KillerGrid>();
+        if (killerGrid != null)
+        {
+            _healthPoints -= _damageGrid;
+            if (_healthPoints <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        
+        StoneStrike strike = other.gameObject.GetComponent<StoneStrike>();
+        if (strike != null)
+        {
+            _healthPoints -= _damageStone;
+            if (_healthPoints <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        
         Ork component = other.gameObject.GetComponent<Ork>();
         if (component != null)
         {
@@ -54,10 +77,7 @@ public class Skeleton : MonoBehaviour
         }
 
         Trap trap = other.gameObject.GetComponent<Trap>();
-        if (trap != null)
-        {
-            // _support.Support();
-        }
+        
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
@@ -77,8 +97,8 @@ public class Skeleton : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Stone1 stone1 = other.gameObject.GetComponent<Stone1>();
-        if (stone1 != null)
+        StoneSmalles stoneSmalles = other.gameObject.GetComponent<StoneSmalles>();
+        if (stoneSmalles != null)
         {
             _stoneSpawn.SpawnStones();
         }
@@ -120,14 +140,7 @@ public class Skeleton : MonoBehaviour
         {
             _bridgeIsDisappearing.BridgeOf();
         }
-
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-        
-    }
-
     private void OnTriggerExit(Collider other)
     {
         GateActivator component = other.gameObject.GetComponent<GateActivator>();
