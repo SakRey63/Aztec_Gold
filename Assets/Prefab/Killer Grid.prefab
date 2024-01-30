@@ -2080,6 +2080,7 @@ GameObject:
   - component: {fileID: 3952838175773557593}
   - component: {fileID: 5209278481911332215}
   - component: {fileID: 573451253820603087}
+  - component: {fileID: 639776412498835818}
   m_Layer: 0
   m_Name: Killer Grid
   m_TagString: Untagged
@@ -2151,6 +2152,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.16324902, y: 2.9763134, z: 3.4947276}
   m_Center: {x: -15.750881, y: 1.9518138, z: 3.3216765}
+--- !u!114 &639776412498835818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8792005733421138668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b805c80de27c344807869ccbba032c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8952839384795100453
 GameObject:
   m_ObjectHideFlags: 0

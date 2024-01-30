@@ -15,6 +15,7 @@ public class Skeleton : MonoBehaviour
     [SerializeField] private float _healthPoints;
     [SerializeField] private float _damageStone;
     [SerializeField] private float _damageGrid;
+    
     private int _score = 0;
     private int _hit = 10;
     private Rigidbody _rb;
@@ -27,6 +28,7 @@ public class Skeleton : MonoBehaviour
     private BridgeIsDisappearing _bridgeIsDisappearing;
     private TurningGrid _turningGrid;
     private EnemySpawner _stoneSpawn;
+    private EnemySpawner _spawnFishes;
 
     private void Start()
     {
@@ -44,6 +46,7 @@ public class Skeleton : MonoBehaviour
             _rb.AddForce(Vector3.up * _jumpHeight);
         }
     }
+    
     private void OnCollisionEnter(Collision other)
     { 
         Debug.Log($"Skeleton collision enter {other.gameObject.name}");
@@ -143,12 +146,23 @@ public class Skeleton : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        Fishes spawnFishes = other.gameObject.GetComponent<Fishes>();
+        if (spawnFishes != null)
+        {
+            _spawnFishes.SpawnFishes();
+        }
+
         GateActivator component = other.gameObject.GetComponent<GateActivator>();
         if (component != null)
         {
             _movingToTheRight.GoClose();
             _movingToTheLeft.GoClose();
         }
+    }
+
+    public void SpawnFish(EnemySpawner fish)
+    {
+       _spawnFishes = fish;
     }
 
     public void Stones(EnemySpawner stone)
