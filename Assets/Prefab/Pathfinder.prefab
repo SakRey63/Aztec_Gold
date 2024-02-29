@@ -2511,7 +2511,7 @@ MonoBehaviour:
   _movementSpeed: 0.04
   _rotateSpeed: 0.8
   _cameraMount: {fileID: 2732717965835386279}
-  _jumpPower: 30
+  _jumpPower: 200
 --- !u!54 &7256350733604641423
 Rigidbody:
   m_ObjectHideFlags: 0
