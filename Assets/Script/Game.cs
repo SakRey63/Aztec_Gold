@@ -33,6 +33,9 @@ public class Game : MonoBehaviour
             component.OpenRight(_movingToTheRight);
             component.OpenLeft(_movingToTheLeft);
             component.SpawnFish(_spawnFishes);
+            component.SetRun(_forthBlockOfStone);
+            component.Turning(_turningGrid);
+            component.SetBridgeOf(_bridgeIsDisappearing);
         }
         Register(go);
     }

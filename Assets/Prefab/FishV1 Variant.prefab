@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agent: {fileID: -1887669641176682403}
+  _enemySpawner: {fileID: 0}
 --- !u!65 &1023836330776941089
 BoxCollider:
   m_ObjectHideFlags: 0

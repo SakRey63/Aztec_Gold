@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agent: {fileID: -845030621149821469}
+  _points: []
 --- !u!65 &4204520839270079301
 BoxCollider:
   m_ObjectHideFlags: 0

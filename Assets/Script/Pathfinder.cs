@@ -15,6 +15,10 @@ public class Pathfinder : MonoBehaviour
     private MovingToTheLeft _movingToTheLeft;
     private EnemySpawner _spawnFishes;
     private Rigidbody _rb;
+    private ForthBlockOfStone _forthBlockOfStone;
+    private EnemySpawner _enemySpawner;
+    private TurningGrid _turningGrid;
+    private BridgeIsDisappearing _bridgeIsDisappearing;
 
     private bool _isGraunded;
     private bool _dobleJump;
@@ -65,6 +69,34 @@ public class Pathfinder : MonoBehaviour
             _movingToTheRight.GoOpen();
             _movingToTheLeft.GoOpen();
         }
+        
+        Lava lava = other.gameObject.GetComponent<Lava>();
+        if (lava != null)
+        {
+            Destroy(gameObject);
+        }
+        
+        Stone stone = other.gameObject.GetComponent<Stone>();
+        if (stone != null)
+        {
+            _forthBlockOfStone.GoRun();
+        }
+        GridTrigger grid = other.gameObject.GetComponent<GridTrigger>();
+        if (grid != null)
+        {
+            _turningGrid.RotateGrid();
+
+        }
+        BridgeTrigger trigger = other.gameObject.GetComponent<BridgeTrigger>();
+        if (trigger != null)
+        {
+            _bridgeIsDisappearing.BridgeOf();
+        }
+        SupportOff sup = other.gameObject.GetComponent<SupportOff>();
+        if (sup != null)
+        {
+            Destroy(other.gameObject);
+        }
 
     }
     private void OnTriggerExit(Collider other)
@@ -99,5 +131,19 @@ public class Pathfinder : MonoBehaviour
     public void SpawnFish(EnemySpawner fish)
     {
         _spawnFishes = fish;
+    }
+    public void SetRun(ForthBlockOfStone run)
+    {
+        _forthBlockOfStone = run;
+    }
+    
+    public void Turning(TurningGrid turning)
+    {
+        _turningGrid = turning;
+    }
+    
+    public void SetBridgeOf(BridgeIsDisappearing trigger)
+    {
+        _bridgeIsDisappearing = trigger;
     }
 }

@@ -17,18 +17,13 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Fish[] _fish;
     [SerializeField] private Transform[] _spawnSharks;
     [SerializeField] private Shark _shark;
-    [SerializeField] private Transform[] _pointsFishes;
     [SerializeField] private int _numberOfSharks;
-    [SerializeField] private GameObject _foodFish;
+    [SerializeField] private Transform[] _pointsFish;
 
-    [SerializeField] private int _timeFoodsStart;
-    [SerializeField] private int _timeFoodsRepeat;
-
-    private GameObject _go;
+    
     public void SpawnFishes()
     {
-        InvokeRepeating(nameof(SpawnFish), time: 10.0f, repeatRate: 15.0f);
-        InvokeRepeating(nameof(SpawnFoodsFishes), _timeFoodsStart, repeatRate: _timeFoodsRepeat);
+        InvokeRepeating(nameof(SpawnFish), time: 3.0f, repeatRate: 20.0f);
 
         for (int i = 0; i < _numberOfSharks; i++)
         {
@@ -51,13 +46,12 @@ public class EnemySpawner : MonoBehaviour
         var fishIndex = Random.Range(0, _fish.Length);
 
         var go = Instantiate(_fish[fishIndex], _spawnFish[pointIndex].position, _spawnFish[pointIndex].rotation);
-        
-        if (_foodFish != null)
-        {
-            go.GetComponent<Fish>().SetTarget(_foodFish.transform);
-        }
 
+        var pointFishIndex = Random.Range(0, _pointsFish.Length);
+        go.SetTarget(_pointsFish[pointFishIndex]);
     }
+    
+    
 
 
 
@@ -77,12 +71,6 @@ public class EnemySpawner : MonoBehaviour
     {
         Instantiate(_stonesPrefab, _stonesPoints.position, _stonesPoints.rotation);
     }
-
-    public void SpawnFoodsFishes()
-    {
-        int indexPoint = Random.Range(0, _pointsFishes.Length);
-        var go = Instantiate(_foodFish, _pointsFishes[indexPoint].position, _pointsFishes[indexPoint].rotation);
-        
-    }
     
+
 }

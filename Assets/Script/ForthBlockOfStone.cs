@@ -14,7 +14,7 @@ public class ForthBlockOfStone : MonoBehaviour
     // В каком направлении объект движется в данный момент
     private int _direction = 1;
 
-    private bool _run = false;
+    private bool _run;
     
 
     // Update is called once per frame
